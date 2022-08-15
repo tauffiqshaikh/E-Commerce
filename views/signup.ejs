@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="/style.css">
+<body>
+  <div class="form-container">
+    <form style="display: flex; flex-direction : column; width: 25%;" method="post" action="/user/signup">
+      <h1 class="title" style="text-align: center;">SIGNUP</h1>
+      <input class="input" type="text" name="username" placeholder="username">
+      <input class="input" type="text" name="email" placeholder="email">
+      <input class="input" type="password" name="password" placeholder="password">
+      <input style="width: fit-content; align-self: center;" class="btn" type="submit" value="signup">
+      <%- include("partials/authError.ejs") %>
+      <a style="margin-top: 20px; text-align: center;" href="/user/login">login</a>
+    </form>
+  </div>
+</body>

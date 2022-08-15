@@ -1,0 +1,112 @@
+body{
+  margin: 0;
+}
+
+#ipt{
+  width: 90%;
+  height: 250px;
+  font-size: xx-large;
+  font-weight: bold;
+  border: none;
+  margin: 15% 5% 0 0;
+  outline: none;
+  color: rgb(50, 50, 50);
+}
+
+.title{
+  color : rgb(129, 12, 104);
+}
+
+p{
+  color : rgb(50, 50, 50);
+  inline-size: 70%;
+  overflow-wrap: break-word;
+}
+
+#parent1{
+  --box-shadow-color: rgb(155, 155, 155);
+  background-color: rgb(228, 228, 228);
+  margin: 1% 5% 1% 1% ;
+  padding: 2.5%;
+  height: 100%;
+  box-shadow: 5px 5px var(--box-shadow-color) ;
+}
+
+/* #btn{
+  /* height: 50px; */
+/* } */ 
+
+.btn{
+  font-size: 18px;
+  margin-top: 30px;
+  background-color: rgb(136, 24, 136);
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+.input{
+  padding: 10px;
+  font-size: medium;
+  /* font-weight: bold; */
+  display: block;
+  /* border: none; */
+  margin: 10% 0 0 0;
+  outline: none;
+  color: rgb(50, 50, 50);
+}
+
+.form-container{
+  padding: 10% 0;
+  display: flex;
+justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  background-color: rgba(137, 43, 226, 0.301);
+  overflow: hidden;
+  /* position: fixed; */
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+  margin: 10px;
+}
+
+/* li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+} */
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+.product{
+  margin: 20px;
+}
+
+#productsContainer{
+  width: fit-content;
+}
+
+.icon{
+  width: 40px;
+}
+
+
+
+

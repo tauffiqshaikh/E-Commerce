@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="./style.css">
+<body class="parent1">
+  <div><%- include("partials/navBar.ejs") %></div>
+  <div style="display: flex;" id="productsContainer" >
+    <% for(product in products.filteredProducts){ %>
+        <div class="product"">
+          <h2 class="title" style="text-align: center;"><%= products.filteredProducts[product].name %></h2>
+          <img style="width: 100%; height: 270px;" src="<%= products.filteredProducts[product].image %>" alt="">
+          <h3 style="text-align: center;"><%= products.filteredProducts[product].price %></h3>
+          <form style="text-align: center;" action="/details/<%= products.filteredProducts[product]._id %>">
+            <input type="submit" class="btn" value="View Details" name="" id="">
+          </form>
+        </div>
+    <% } %>
+  </div>
+
+  <div style="text-align: center;" >
+    <% if(products.prev){%>
+      <div style="display: inline-block; margin: 20px;" >
+        <a style="text-decoration: none; background-color: blueviolet;" class="btn" href="/?page=<%= products.prev.page %>&limit=5">Prev</a>
+      </div>
+      <% } %>
+    <% if(products.next){ %>
+    <div style="display: inline-block; margin: 20px;" >
+      <a style="text-decoration: none; background-color: blueviolet;" class="btn" href="/?page=<%= products.next.page %>&limit=5">Next</a>
+    </div>
+    <% } %>
+  </div>
+
+</body>
