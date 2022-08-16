@@ -16,7 +16,8 @@ module.exports.postReq = async (req, res) => {
       username,
       email,
       password : hashedPassword,
-      isVerified : false
+      isVerified : false,
+      cart : null
     }
     
     await signupUser(user);

@@ -8,7 +8,7 @@ const logoutController = require("../controllers/logoutController");
 const verifyUserController = require("../controllers/verifyUserController");
 const forgotPasswordController = require("../controllers/forgotPasswordController");
 const resetPasswordController = require("../controllers/resetPasswordController");
-const sendPasswordMailController = require("../controllers/sendPasswordMailController")
+const sendPasswordMailController = require("../controllers/sendPasswordMailController");
 
 router.route("/login")
 .get(loginController.getReq)
@@ -32,5 +32,6 @@ router.route("/reset-password/:username")
 router.route("/forgot-password")
 .get(forgotPasswordController)
 .post(sendPasswordMailController)
+
 
 module.exports = router;

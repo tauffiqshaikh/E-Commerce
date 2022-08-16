@@ -8,7 +8,9 @@
     <h1 style="justify-content: center;"><%= product.name %></h1>
     <h2 style="justify-content: center;"><%= product.price %></h2>
     <p style="max-height: 70%; overflow: auto; width: 100%;" ><%= product.details %></p>
-    <button class="btn">Add to cart</button>
+    <form action="/add-to-cart/<%= product._id.toString() %>">
+      <input class="btn" type="submit" value = "Add to cart"/>
+    </form>
     <br>
     <button style="background-color: rgba(179, 42, 179, 0.767); font-size: medium;" class="btn" onclick="history.back()">Go Back</button>
     <!-- <form action = "/back">

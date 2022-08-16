@@ -1,5 +1,44 @@
 <link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 <body class="parent1">
   <div><%- include("partials/navBar.ejs") %></div>
-  <h1 class="title" style="margin: 20px; text-align: center;">Items in your cart</h1>
+  <h1 class="title" style="margin-bottom: 50px; text-align: center;">Items in your cart</h1>
+  <table style="width: 100%;" id="myTble" >
+    <thead style="font-size: x-large; color: blueviolet;" >
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody style="text-align: center; font-size: larger; font-weight: bold;">
+        <% for(product in productList){ %>
+          <tr style="margin: 20px;">
+            <td>
+              <h3>
+                <a style="text-decoration: none;" class="title" href="/details/<%= productList[product]._id %>"><%= productList[product].name %></a>
+              </h3>
+            </td>
+            <td><img style="max-height: 160px; width: auto;" src="<%= productList[product].image %>" alt=""></td>
+            <td><%= productList[product].price %></td>
+            <td><%= productList[product].totalPrice %></td>
+            <td>
+              <form style="display: inline;" action="/add-to-cart/<%= productList[product]._id.toString() %>" >
+                <input type="image" style="width: 20px; margin-right: 20px;" src="/icons/plus.png" >
+              </form>
+              <%= productList[product].quantity %>
+              <form style="display: inline;" action="/remove-from-cart/<%= productList[product]._id.toString() %>" >
+                <input type="image" style="width: 20px; margin-left: 20px;" src="/icons/minus.png" >
+              </form>
+            </td>
+          </tr>
+        <% } %>
+    </tbody>
+  </table>
+
+
 </body>

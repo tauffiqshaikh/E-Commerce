@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
     unique:true
   },
   password: String,
-  isVerified : Boolean
+  isVerified : Boolean,
+  cart : Object
 });
 
 const userModel = mongoose.model('users', userSchema);
