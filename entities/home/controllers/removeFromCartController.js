@@ -1,8 +1,9 @@
 const removeFromCart = require("../services/removeFromCart");
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   
-  removeFromCart(req.session.user, req.params.productId);
+  await removeFromCart(req.session.user, req.params.productId, req.query.all);
+
   res.redirect("/cart");
 
 }

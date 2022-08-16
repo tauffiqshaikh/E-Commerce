@@ -1,23 +1,58 @@
   <ul>
-    <li><a href="/?page=1&limit=5" style="text-decoration: none;" ><h1 class="title">Home</h1></a></li>
+    <li style="display: inline;">
+      <a href="/?page=1&limit=5" style="text-decoration: none;" >
+        <h1 class="title">Home</h1>
+      </a>
+    </li>
 
-    <li style="float : right" >
+    <!-- <li style="float : right" >
       <form style="display: inline; " action="/user/logout" method="post">
         <input style="background-color: red; float: right; margin-top: 5; margin-right: 20px; font-size: medium; padding: 6px;" value="logout" type="submit" class="btn">
       </form>
-    </li>
+    </li> -->
   
-    <li style="float: right;">
+    <li style="float: right; display: inline; width: 100px;">
+      <div style="display: inline;" class="action">
+          <button style="margin : 0" onclick="menuToggle()" class="btn">
+            Hello, <%= user %> !
+          </button>
+   
+        <div  class="menu">
+          <ul style="display: inline;">
+            <li>
+              <form action="/user/reset-password/<%= user %>">
+                <input style="background-color: rgb(119, 119, 119); margin: 0;" class="btn" type="submit" name="" value="reset Password">
+              </form>
+            </li>
+            <li>
+              <form style="display: inline; " action="/user/logout" method="post">
+                <input  style="background-color: red; margin: 0; " value="logout" type="submit" class="btn">
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+
+    <!-- <li style="float: right;">
       <form action="/user/reset-password/<%= user %>">
         <input style="background-color: rgb(104, 104, 104); float: right; margin-top: 5; margin-right: 20px; font-size: medium; padding: 6px;" class="btn" type="submit" name="" value="reset Password">
       </form>
     </li>
 
-    <li style="float: right;" ><h3 class="title">Hello, <%= user %> !</h3></li>
+    <li style="float: right;" >
+        <h3 class="title">Hello, <%= user %> !</h3>
+    </li> -->
 
-    <li style="float: right;">
+    <li style="float: right; display: inline-block; width: 100px;">
       <form action="/cart">
-        <input class="icon" src="/icons/shopping-cart.png" type="image" name="" id="">
+        <input class="icon" style="color: white;" src="/icons/shopping-cart.png" type="image" name="" id="">
       </form>
     </li>
   </ul>
+  <script>
+  function menuToggle() {
+    const toggleMenu = document.querySelector(".menu");
+    toggleMenu.classList.toggle("active");
+  }
+</script>

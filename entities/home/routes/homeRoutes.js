@@ -8,15 +8,14 @@ const goToCart = require("../controllers/goToCart");
 const goBack = require("../controllers/goBack");
 const addToCartController = require("../controllers/addToCartController");
 const removeFromCartController = require("../controllers/removeFromCartController");
-
-router.get("/", checkAuth, getHomePageController)
+router.get("/", getHomePageController)
 router.get("/details/:id", checkAuth, getProductDetails);
 router.get("/cart", checkAuth, goToCart);
 router.get("/back", checkAuth, goBack);
 
 router.route("/add-to-cart/:productId")
-.get(addToCartController)
+.get(checkAuth, addToCartController)
 router.route("/remove-from-cart/:productId")
-.get(removeFromCartController)
+.post(checkAuth, removeFromCartController)
 
 module.exports = router;

@@ -66,7 +66,7 @@ justify-content: center;
 ul {
   list-style-type: none;
   padding: 0;
-  background-color: rgba(137, 43, 226, 0.301);
+  background-color: rgba(125, 31, 136, 0.349);
   overflow: hidden;
   /* position: fixed; */
   top: 0;
@@ -108,5 +108,33 @@ li a:hover {
 }
 
 
+
+
+
+.action {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.action .menu {
+  position: absolute;
+  top: 120px;
+  right: -10px;
+  /* padding: 10px 20px; */
+  background: rgba(214, 214, 214, 0.733);
+  /* width: 200px; */
+  /* box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1); */
+  border-radius: 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.action .menu.active {
+  top: 80px;
+  visibility: visible;
+  opacity: 1;
+}
 
 

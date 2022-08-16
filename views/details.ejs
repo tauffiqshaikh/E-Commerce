@@ -8,9 +8,15 @@
     <h1 style="justify-content: center;"><%= product.name %></h1>
     <h2 style="justify-content: center;"><%= product.price %></h2>
     <p style="max-height: 70%; overflow: auto; width: 100%;" ><%= product.details %></p>
-    <form action="/add-to-cart/<%= product._id.toString() %>">
-      <input class="btn" type="submit" value = "Add to cart"/>
-    </form>
+    <% if(product.inStock > 0) { %>
+      <form action="/add-to-cart/<%= product._id.toString() %>">
+        <input class="btn" type="submit" value = "Add to cart"/>
+      </form>
+    <% } else {%>
+      <h3 style="color: red;">
+        out of stock
+      </h3>
+    <% } %>
     <br>
     <button style="background-color: rgba(179, 42, 179, 0.767); font-size: medium;" class="btn" onclick="history.back()">Go Back</button>
     <!-- <form action = "/back">

@@ -1,15 +1,30 @@
 <link rel="stylesheet" href="./style.css">
 <body class="parent1">
   <div><%- include("partials/navBar.ejs") %></div>
-  <div style="display: flex;" id="productsContainer" >
+  <div style="display: flex; width: auto; justify-content: center;" id="productsContainer" >
     <% for(product in products.filteredProducts){ %>
-        <div class="product"">
+        <div class="product" style="height: 50%; width: 20%; background-color: rgba(211, 211, 211, 0.432); ">
           <h2 class="title" style="text-align: center;"><%= products.filteredProducts[product].name %></h2>
-          <img style="width: 100%; height: 270px;" src="<%= products.filteredProducts[product].image %>" alt="">
-          <h3 style="text-align: center;"><%= products.filteredProducts[product].price %></h3>
-          <form style="text-align: center;" action="/details/<%= products.filteredProducts[product]._id %>">
-            <input type="submit" class="btn" value="View Details" name="" id="">
-          </form>
+          <div style="height: 50%; width : 100%; text-align: center;">
+            <img style="max-width: 90%; height: 220px;" src="<%= products.filteredProducts[product].image %>" alt="">
+          </div>
+          <div style="margin : 10px">
+            <h3 style="text-align: center;"><%= products.filteredProducts[product].price %></h3>
+          </div>
+          <div style="text-align: center;" >
+            <form style="text-align: center; display: inline;" action="/details/<%= products.filteredProducts[product]._id %>">
+              <input style="font-size: small; margin-bottom: 20px;" type="submit" class="btn" value="View Details" name="" id="">
+            </form>
+            <% if(products.filteredProducts[product].inStock > 0) { %>
+              <form style="text-align: center; display: inline;" action="/add-to-cart/<%= products.filteredProducts[product]._id.toString() %>">
+                <input style="font-size: small; margin-bottom: 20px;" class="btn" type="submit" value = "Add to cart"/>
+              </form>
+            <% } else {%>
+              <h3 style="color: red; display: inline;">
+                out of stock
+              </h3>
+            <% } %>
+          </div>
         </div>
     <% } %>
   </div>
