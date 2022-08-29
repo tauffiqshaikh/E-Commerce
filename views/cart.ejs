@@ -1,20 +1,16 @@
 <link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-<body class="parent1">
   <div><%- include("partials/navBar.ejs") %></div>
   <h1 class="title" style="margin-bottom: 50px; text-align: center;">Items in your cart</h1>
 
   <% if(productList.length !== 0) {%>
-    <table style="width: 100%;" id="myTble" >
-      <thead style="font-size: x-large; color: blueviolet;" >
+    <table style="width: 100%;" >
+      <thead style="font-size: x-large; color: rgb(49, 22, 148); " >
           <tr>
-              <th>Name</th>
-              <th>Image</th>
-              <th>Price</th>
-              <th>Total</th>
-              <th>Quantity</th>
+              <th>NAME</th>
+              <th>PICTURE</th>
+              <th>PRICE</th>
+              <th>TOTAL</th>
+              <th>QUANTITY</th>
           </tr>
       </thead>
       <tbody style="text-align: center; font-size: larger; font-weight: bold;">
@@ -50,7 +46,7 @@
       </tbody>
     </table>
   <% } else {%>
-    <h1 style="text-align: center;">So Empty </h1>
+    <h1 style="text-align: center;">So Empty</h1>
   <% } %>
 
 </body>

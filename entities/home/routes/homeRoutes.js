@@ -9,7 +9,7 @@ const goBack = require("../controllers/goBack");
 const addToCartController = require("../controllers/addToCartController");
 const removeFromCartController = require("../controllers/removeFromCartController");
 router.get("/", getHomePageController)
-router.get("/details/:id", checkAuth, getProductDetails);
+router.get("/details/:id", getProductDetails);
 router.get("/cart", checkAuth, goToCart);
 router.get("/back", checkAuth, goBack);
 

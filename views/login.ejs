@@ -1,14 +1,15 @@
 <link rel="stylesheet" href="/style.css">
-<body>
-<div class="form-container">
-  <form style="display: flex; flex-direction : column; width: 25%;" method="post" action="/user/login">
-    <h1 class="title" style="text-align: center; ">LOGIN</h1>
-    <input required class="input" type="text" name="username" placeholder="username">
-    <input class="input" type="password" name="password" placeholder="password">
-    <input style="width: fit-content; align-self: center; font-size: x-large;" class="btn" type="submit" value="Login">
-    <%- include("partials/authError.ejs") %>
-    <a style=" margin-top: 20px; text-align: center;" href="/user/forgot-password">Forgot Password?</a>
-    <a style=" margin-top: 20px; text-align: center;" href="/user/signup">signup</a>
-  </form>
-</div>
+<body style="background-color: gold;">
+  <button style="margin: 20px 0px 0px 20px;" class="btn" onclick="history.back()">Back</button>
+  <div class="form-container">
+    <form style="display: flex; flex-direction : column; width: 25%;" method="post" action="/user/login">
+      <h1 class="title" style="text-align: center; ">LOGIN</h1>
+      <input required class="input" type="text" name="username" placeholder="username">
+      <input class="input" type="password" name="password" placeholder="password">
+      <input style="width: fit-content; align-self: center; font-size: x-large;" class="btn" type="submit" value="Login">
+      <%- include("partials/authError.ejs") %>
+      <a style=" margin-top: 20px; text-align: center;" href="/user/forgot-password">Forgot Password?</a>
+      <p style=" margin-top: 20px; align-self: center;" >Don't have an account? <a href="/user/signup">signup</a></p>
+    </form>
+  </div>
 </body>

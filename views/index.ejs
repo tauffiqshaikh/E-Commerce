@@ -1,45 +1,56 @@
 <link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<title>Home</title>
 <body class="parent1">
   <div><%- include("partials/navBar.ejs") %></div>
-  <div style="display: flex; width: auto; justify-content: center;" id="productsContainer" >
-    <% for(product in products.filteredProducts){ %>
-        <div class="product" style="height: 50%; width: 20%; background-color: rgba(211, 211, 211, 0.432); ">
-          <h2 class="title" style="text-align: center;"><%= products.filteredProducts[product].name %></h2>
-          <div style="height: 50%; width : 100%; text-align: center;">
-            <img style="max-width: 90%; height: 220px;" src="<%= products.filteredProducts[product].image %>" alt="">
-          </div>
-          <div style="margin : 10px">
-            <h3 style="text-align: center;"><%= products.filteredProducts[product].price %></h3>
-          </div>
-          <div style="text-align: center;" >
-            <form style="text-align: center; display: inline;" action="/details/<%= products.filteredProducts[product]._id %>">
-              <input style="font-size: small; margin-bottom: 20px;" type="submit" class="btn" value="View Details" name="" id="">
-            </form>
-            <% if(products.filteredProducts[product].inStock > 0) { %>
-              <form style="text-align: center; display: inline;" action="/add-to-cart/<%= products.filteredProducts[product]._id.toString() %>">
-                <input style="font-size: small; margin-bottom: 20px;" class="btn" type="submit" value = "Add to cart"/>
+
+
+
+
+
+
+
+  <div class="container p-5">
+    <div class="row">
+      <% for(product in products.filteredProducts){ %>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card" style="align-items: center;">
+            <img style="height : 200px; width: fit-content;" src='<%= products.filteredProducts[product].image %>' class="card-img-top" alt="product image">
+            <h5 class="card-title"> <%= products.filteredProducts[product].name %> </h5>
+            <div class="card-body d-flex" style="padding-top: 0px;">
+              <form  action="/details/<%= products.filteredProducts[product]._id %>">
+                <button type="submit" name = "productId" value="<%= product._id %>"  class="btn btn-sm btn-primary" style="padding-top: 0px;">Details</button>
               </form>
-            <% } else {%>
-              <h3 style="color: red; display: inline;">
-                out of stock
-              </h3>
-            <% } %>
+              <% if(products.filteredProducts[product].inStock > 0) { %>
+                <form  action="/add-to-cart/<%= products.filteredProducts[product]._id.toString() %>">
+                  <button type="submit" name = "productId" value="<%= product._id %>" class="me-2 btn btn-sm btn-success" style="padding-top: 0px;">Add to cart</button>
+                </form>
+              <% } else {%>
+                <p style="color: red; display: inline;">
+                  out of stock
+                </p>
+              <% } %>
+                <!-- <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#id<%= product._id %>">View</button> -->
+            </div>
           </div>
         </div>
-    <% } %>
-  </div>
 
-  <div style="text-align: center;" >
-    <% if(products.prev){%>
+      <% } %>
+    </div>
+
+    <div style="text-align: center;" >
+      <% if(products.next){ %>
+        <% products.next.limit = Number(products.next.limit) + 5 %>
       <div style="display: inline-block; margin: 20px;" >
-        <a style="text-decoration: none; background-color: blueviolet;" class="btn" href="/?page=<%= products.prev.page %>&limit=5">Prev</a>
+        <a style="text-decoration: none; background-color: gold; color: rgb(49, 22, 148); font-weight: bold ; border: solid;" class="btn" href="/?limit=<%= products.next.limit %>">Load More</a>
       </div>
       <% } %>
-    <% if(products.next){ %>
-    <div style="display: inline-block; margin: 20px;" >
-      <a style="text-decoration: none; background-color: blueviolet;" class="btn" href="/?page=<%= products.next.page %>&limit=5">Next</a>
     </div>
-    <% } %>
-  </div>
 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous">
+    </script>
 </body>

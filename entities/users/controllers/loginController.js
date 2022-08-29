@@ -4,7 +4,7 @@ const loginUser = require("../services/login");
 module.exports.getReq = function(req, res)
 {
   if(req.session.isAuthenticated){
-    res.redirect('/?page=1&limit=5');
+    res.redirect('/');
     return;
   }
   res.render("login.ejs", {err : null})
@@ -27,7 +27,7 @@ module.exports.postReq = async (req, res)=>{
     if(match){
       req.session.isAuthenticated = true;
       req.session.user = username;
-      res.redirect("/?page=1&limit=5");
+      res.redirect("/");
       return;
     }
 

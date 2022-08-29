@@ -1,6 +1,6 @@
   <ul>
     <li style="display: inline;">
-      <a href="/?page=1&limit=5" style="text-decoration: none;" >
+      <a href="/" style="text-decoration: none;" >
         <h1 class="title">Home</h1>
       </a>
     </li>
@@ -13,10 +13,15 @@
   
     <li style="float: right; display: inline; width: 100px;">
       <div style="display: inline;" class="action">
-          <button style="margin : 0" onclick="menuToggle()" class="btn">
-            Hello, <%= user %> !
-          </button>
-   
+          <% if(user){ %>
+            <button style="margin : 0" onclick="menuToggle()" class="btn">
+              Hello, <%= user %> !
+            </button>
+          <% } else { %>
+            <form action="/user/login">
+              <input style="margin : 0" class="btn" type="submit" value="Login"/>
+            </form>
+          <% } %>
         <div  class="menu">
           <ul style="display: inline;">
             <li>

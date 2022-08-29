@@ -1,4 +1,4 @@
 module.exports = async (req, res) => {
 
-  res.render("forgotPassword.ejs");
+  res.render("forgotPassword.ejs", {err : null});
 }

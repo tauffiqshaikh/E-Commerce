@@ -11,7 +11,7 @@ const sendMail = (data, recipient, subject) => {
           Messages: [
             {
               From: {
-                Email: "tauffiqshaikh2560@gmail.com",
+                Email: "tauffiqshaikh002@gmail.com",
                 Name: "Generic Shopping Website"
               },
               To: [

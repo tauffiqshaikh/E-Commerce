@@ -1,11 +1,13 @@
 <link rel="stylesheet" href="/style.css">
-<body>
+<body  style="background-color: gold;">
+  <button style="margin: 20px 0px 0px 20px;" class="btn" onclick="history.back()">Back</button>
   <div class="form-container">
     <form style="display: flex; flex-direction : column; width: 25%;" method="post" action="/user/signup">
       <h1 class="title" style="text-align: center;">SIGNUP</h1>
       <input required class="input" type="text" name="username" placeholder="username">
       <input required class="input" type="text" name="email" placeholder="email">
-      <input class="input" type="password" name="password" placeholder="password">
+      <input class="input" type="text" name="password" placeholder="password">
+      <input class="input" type="password" name="confirmed_password" placeholder="confirm password">
       <input style="width: fit-content; align-self: center; font-size: x-large;" class="btn" type="submit" value="Signup">
       <%- include("partials/authError.ejs") %>
       <a style="margin-top: 20px; text-align: center;" href="/user/login">login</a>
